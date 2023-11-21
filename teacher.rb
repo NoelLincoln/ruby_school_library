@@ -8,7 +8,7 @@ class Teacher < Person
 
   def initialize(id, age = 18, name = 'Unknown', parent_permission: true, specialization: 'Ruby on Rails')
     # Call the parent's constructor using super
-    super(id, age, name, parent_permission)
+    super(id, age, name, parent_permission: true)
     @specialization = specialization
   end
 
