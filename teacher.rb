@@ -4,7 +4,7 @@ require_relative 'person'
 class Teacher < Person
   attr_reader :specialization
 
-  def initialize(id, age, specialization, name = 'Unknown', parent_permission: true)
+  def initialize(age, specialization, name = 'Unknown', parent_permission: true)
     # Call the parent's constructor using super
     super(age, name, parent_permission: parent_permission)
     @specialization = specialization
