@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 # Represents the super class person
 class Person

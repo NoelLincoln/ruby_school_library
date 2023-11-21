@@ -1,6 +1,5 @@
-# frozen_string_literal: true
-
 # student.rb
+
 require_relative 'person'
 
 # Represents a student with an additional classroom.
