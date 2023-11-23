@@ -4,6 +4,7 @@ require_relative 'nameable'
 # Trimmer decorator, extending the behaviour of concrete component person
 class TrimmerDecorator < Nameable
   def initialize(nameable)
+    super()
     @nameable = nameable
   end
 

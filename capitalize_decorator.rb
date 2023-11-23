@@ -4,6 +4,7 @@ require_relative 'nameable'
 # Capitalize decorator
 class CapitalizeDecorator < Nameable
   def initialize(nameable)
+    super()
     @nameable = nameable
   end
 
