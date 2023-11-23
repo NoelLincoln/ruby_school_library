@@ -1,7 +1,7 @@
 # base_decorator.rb
 require_relative 'nameable'
 
-#Base decorator class
+# Base decorator class
 class BaseDecorator < Nameable
   attr_accessor :nameable
 
@@ -14,6 +14,3 @@ class BaseDecorator < Nameable
     @nameable.correct_name
   end
 end
-
-
-
