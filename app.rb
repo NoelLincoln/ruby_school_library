@@ -129,8 +129,6 @@ class App
   def find_person_by_id(person_id)
     @people.find { |person| person.id == person_id }
   end
-
-
   private
 
   def find_person_by_id(person_id)
