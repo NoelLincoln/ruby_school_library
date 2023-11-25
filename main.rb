@@ -7,7 +7,7 @@ def main
 
   loop do
     display_menu
-    option = get_user_input
+    option = user_input
 
     case option
     when 1
@@ -41,7 +41,7 @@ def display_menu
   puts '7. Exit'
 end
 
-def get_user_input
+def user_input
   gets.chomp.to_i
 end
 
