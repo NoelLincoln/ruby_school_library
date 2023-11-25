@@ -106,9 +106,11 @@ class App
   end
 
   # List all rentals for a given person id
+  # List all rentals for a given person id
   def list_rentals
     print 'ID of person: '
     id = gets.chomp.to_i
+
     person = find_person_by_id(id)
 
     if person
@@ -121,6 +123,13 @@ class App
       puts 'Person not found.'
     end
   end
+
+  private
+
+  def find_person_by_id(person_id)
+    @people.find { |person| person.id == person_id }
+  end
+
 
   private
 
