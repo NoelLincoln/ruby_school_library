@@ -110,10 +110,24 @@ class App
   def list_rentals
     print 'ID of person: '
     id = gets.chomp.to_i
-    puts 'Rentals:'
-    @rentals.each do |rental|
-      puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}" if rental.person.id == id
-      puts ' '
+    person = find_person_by_id(id)
+
+    if person
+      puts 'Rentals:'
+      person.rentals.each do |rental|
+        puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
+        puts ' '
+      end
+    else
+      puts 'Person not found.'
     end
   end
+
+  private
+
+  def find_person_by_id(person_id)
+    @people.find { |person| person.id == person_id }
+  end
+
+
 end
