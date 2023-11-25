@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # book.rb
 class Book
   attr_accessor :title, :author, :rentals

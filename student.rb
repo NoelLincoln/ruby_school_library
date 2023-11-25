@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 require_relative 'person'
+
+# student class
 class Student < Person
   attr_accessor :name
   attr_reader :classroom

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'person'
 require_relative 'teacher'
 require_relative 'student'
@@ -24,7 +26,6 @@ class App
     end
     puts
   end
-
 
   # create person
   def create_person
@@ -63,7 +64,6 @@ class App
     puts 'Book Created Successfully'
     puts ' '
   end
-
 
   # create student
   def create_student
