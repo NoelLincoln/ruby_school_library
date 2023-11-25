@@ -10,15 +10,15 @@ class LibraryApp
 
     loop do
       display_menu
-      option = get_user_input
+      option = user_input
 
       case option
-      when 1 then @app.all_books
-      when 2 then @app.all_people
+      when 1 then list_all_books
+      when 2 then list_all_people
       when 3 then create_person
-      when 4 then @app.create_book
-      when 5 then @app.create_rental
-      when 6 then @app.list_rentals
+      when 4 then create_book
+      when 5 then create_rental
+      when 6 then list_rentals
       when 7 then break
       else
         puts 'Invalid option. Try again'
@@ -44,13 +44,33 @@ class LibraryApp
     puts '7. Exit'
   end
 
-  def get_user_input
+  def user_input
     gets.chomp.to_i
+  end
+
+  def list_all_books
+    @app.all_books
+  end
+
+  def list_all_people
+    @app.all_people
   end
 
   def create_person
     puts 'Creating a person...'
     @app.create_person
+  end
+
+  def create_book
+    @app.create_book
+  end
+
+  def create_rental
+    @app.create_rental
+  end
+
+  def list_rentals
+    @app.list_rentals
   end
 end
 
