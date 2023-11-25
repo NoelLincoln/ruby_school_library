@@ -2,7 +2,6 @@ require_relative 'person'
 require_relative 'teacher'
 require_relative 'student'
 require_relative 'rental'
-
 require_relative 'book'
 require 'date'
 
@@ -128,6 +127,4 @@ class App
   def find_person_by_id(person_id)
     @people.find { |person| person.id == person_id }
   end
-
-
 end
