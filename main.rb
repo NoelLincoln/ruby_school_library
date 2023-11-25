@@ -6,6 +6,8 @@ class LibraryApp
   end
 
   def start
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/MethodLength
     display_welcome_message
 
     loop do
