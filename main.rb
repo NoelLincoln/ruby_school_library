@@ -6,8 +6,6 @@ class LibraryApp
   end
 
   def start
-    # rubocop:disable Metrics/CyclomaticComplexity
-    # rubocop:disable Metrics/MethodLength
     display_welcome_message
 
     loop do
@@ -64,10 +62,12 @@ class LibraryApp
   end
 
   def create_book
+    puts 'Creating a book...'
     @app.create_book
   end
 
   def create_rental
+    puts 'Creating a rental...'
     @app.create_rental
   end
 
