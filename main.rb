@@ -46,7 +46,7 @@ class LibraryApp
     when 4 then create_book
     when 5 then create_rental
     when 6 then list_rentals
-    when 7 then puts 'Exiting the program. Goodbye!' 
+    when 7 then exit_program
     else
       puts 'Invalid option. Try again'
     end
@@ -77,5 +77,9 @@ class LibraryApp
     @app.list_rentals
   end
 end
+
+def exit_program
+    puts 'Thank you for using this app!'
+  end
 
 LibraryApp.new.start
