@@ -48,7 +48,7 @@ class LibraryApp
     when 6 then list_rentals
     when 7 then exit_program
     else
-      puts 'Invalid option. Try again'
+    handle_invalid_option
     end
   end
 
@@ -76,10 +76,15 @@ class LibraryApp
   def list_rentals
     @app.list_rentals
   end
+
+  def handle_invalid_option
+  puts 'Invalid option. Try again'
+end
+
 end
 
 def exit_program
-    puts 'Thank you for using this app!'
+  puts 'Thank you for using this app!'
   end
 
 LibraryApp.new.start
