@@ -1,5 +1,6 @@
 require_relative 'app'
 
+# app entry point
 class LibraryApp
   def initialize
     @app = App.new
@@ -14,6 +15,8 @@ class LibraryApp
       handle_option(option)
       break if option == 7
     end
+
+    exit_program
   end
 
   private
@@ -46,9 +49,6 @@ class LibraryApp
     when 4 then create_book
     when 5 then create_rental
     when 6 then list_rentals
-    when 7 then exit_program
-    else
-    handle_invalid_option
     end
   end
 
@@ -77,14 +77,9 @@ class LibraryApp
     @app.list_rentals
   end
 
-  def handle_invalid_option
-  puts 'Invalid option. Try again'
-end
-
-end
-
-def exit_program
-  puts 'Thank you for using this app!'
+  def exit_program
+    puts 'Thank you for using this app! Goodbye!'
   end
+end
 
 LibraryApp.new.start
