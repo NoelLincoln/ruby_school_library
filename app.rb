@@ -93,10 +93,10 @@ class App
   def create_rental
     puts 'Select a book from the following list by number'
     all_books(show_index: true)
-    book_index = gets.chomp.to_i - 1
+    book_index = gets.chomp.to_i
     puts 'Select a person from the following list by number (not id)'
     all_people(show_index: true)
-    person_index = gets.chomp.to_i - 1
+    person_index = gets.chomp.to_i
     print 'Date: '
     date = Date.parse(gets.chomp)
     rental = Rental.new(date, @books[book_index], @people[person_index])
