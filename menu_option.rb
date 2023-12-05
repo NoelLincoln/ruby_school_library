@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # menu options
 class MenuOption
   def initialize(app)

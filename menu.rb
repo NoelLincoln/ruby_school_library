@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # display menu
 require_relative 'ListBooksOption'
 require_relative 'create_book_option'

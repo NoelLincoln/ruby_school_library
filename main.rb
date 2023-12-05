@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app entry point
 
 require_relative 'app'
