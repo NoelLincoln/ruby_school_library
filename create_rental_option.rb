@@ -1,7 +1,6 @@
-
-
 require_relative 'menu_option'
 
+# create book rental option
 class CreateRentalOption < MenuOption
   def execute
     @app.create_rental

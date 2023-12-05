@@ -1,6 +1,6 @@
-# create person option
 require_relative 'menu_option'
 
+# create person option
 class CreatePersonOption < MenuOption
   def execute
     puts 'Creating a person...'

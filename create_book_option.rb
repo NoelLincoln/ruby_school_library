@@ -1,5 +1,3 @@
-
-
 require_relative 'menu_option'
 
 class CreateBookOption < MenuOption

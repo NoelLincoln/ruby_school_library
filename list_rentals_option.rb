@@ -1,7 +1,6 @@
-
-
 require_relative 'menu_option'
 
+# List Book Rentals option
 class ListRentalsOption < MenuOption
   def execute
     @app.list_rentals

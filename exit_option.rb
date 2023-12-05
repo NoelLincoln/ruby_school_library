@@ -1,7 +1,6 @@
-
-
 require_relative 'menu_option'
 
+# create menu exit option
 class ExitOption < MenuOption
   def execute
     :exit

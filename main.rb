@@ -1,8 +1,7 @@
-# app entry point
-
 require_relative 'app'
 require_relative 'menu'
 
+# app entry point
 class LibraryApp
   def initialize
     @app = App.new

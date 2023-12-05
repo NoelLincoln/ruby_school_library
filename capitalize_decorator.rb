@@ -1,6 +1,3 @@
-
-
-# capitalize_decorator.rb
 require_relative 'base_decorator'
 
 # capitalize decorator implements base decorator correct_name method
