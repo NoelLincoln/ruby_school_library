@@ -90,6 +90,12 @@ ruby app.rb
 - Twitter: [@twitterhandle](https://twitter.com/NoelLincoln)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/noel-bryant/)
 
+👤 **Filbert Kimasa**
+
+- GitHub: [@githubhandle](https://github.com/FilbertKimasa)
+- Twitter: [@twitterhandle](https://twitter.com/filbertdan67)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/filbert-daniel-32b118143)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
