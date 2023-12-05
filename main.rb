@@ -1,6 +1,8 @@
-require_relative 'app'
-
 # app entry point
+
+require_relative 'app'
+require_relative 'menu'
+
 class LibraryApp
   def initialize
     @app = App.new
