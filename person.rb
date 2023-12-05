@@ -1,6 +1,6 @@
-# person.rb
 require_relative 'nameable'
 
+# class person extends Nameable
 class Person < Nameable
   attr_accessor :name, :age, :rentals
   attr_reader :id
