@@ -1,5 +1,5 @@
-require_relative 'ListBooksOption'
-require_relative 'ListPeopleOption'
+require_relative 'list_books_option'
+require_relative 'list_people_option'
 require_relative 'create_book_option'
 require_relative 'create_person_option'
 require_relative 'create_rental_option'
