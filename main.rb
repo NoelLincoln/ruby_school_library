@@ -34,3 +34,5 @@ class LibraryApp
     puts 'Thank you for using this app! Goodbye!'
   end
 end
+
+LibraryApp.new.start
