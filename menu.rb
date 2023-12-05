@@ -22,3 +22,5 @@ class Menu
     @options[option - 1].new(@app).execute
   end
 end
+
+LibraryApp.new.start

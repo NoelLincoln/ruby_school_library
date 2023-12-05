@@ -1,4 +1,4 @@
-require_relative ''
+require_relative 'menu_option'
 
 class CreateBookOption < MenuOption
   def execute

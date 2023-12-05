@@ -1,4 +1,4 @@
-require_relative ''
+require_relative 'menu_option'
 
 class ListRentalsOption < MenuOption
   def execute
