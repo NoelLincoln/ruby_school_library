@@ -1,5 +1,3 @@
-
-
 require_relative 'person'
 require_relative 'teacher'
 require_relative 'student'
@@ -7,6 +5,7 @@ require_relative 'rental'
 require_relative 'book'
 require 'date'
 
+# core functionality class
 class App
   def initialize
     @people = []
