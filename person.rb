@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 
 # person.rb
 require_relative 'nameable'

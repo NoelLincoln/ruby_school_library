@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 
 # base_decorator.rb
 require_relative 'nameable'

@@ -1,12 +1,12 @@
-# frozen_string_literal: true
-
-# display menu
 require_relative 'ListBooksOption'
+require_relative 'ListPeopleOption'
 require_relative 'create_book_option'
+require_relative 'create_person_option'
 require_relative 'create_rental_option'
 require_relative 'list_rentals_option'
 require_relative 'exit_option'
 
+# display menu
 class Menu
   def initialize(app)
     @app = app

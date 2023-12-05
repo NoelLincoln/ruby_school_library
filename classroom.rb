@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 
 # classroom.rb
 class Classroom
