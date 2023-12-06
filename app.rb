@@ -180,4 +180,10 @@ class App
       end.compact
     end
   end
+
+  def save_rentals_to_file
+    File.open('rentals.json', 'w') do |file|
+      file.puts JSON.generate(@rentals.map(&:to_hash))
+    end
+  end
 end
