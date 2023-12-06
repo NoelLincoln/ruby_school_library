@@ -108,7 +108,6 @@ class App
   end
 
   # List all rentals for a given person id
-  # List all rentals for a given person id
   def list_rentals
     print 'ID of person: '
     id = gets.chomp.to_i
@@ -198,5 +197,14 @@ class App
         Rental.new(date, book, person)
       end
     end
+  end
+
+  # Helper methods to find book and person by title/name
+  def find_book_by_title(title)
+    @books.find { |book| book.title == title }
+  end
+
+  def find_person_by_name(name)
+    @people.find { |person| person.name == name }
   end
 end
