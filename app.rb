@@ -150,4 +150,12 @@ class App
       file.puts JSON.generate(@books.map(&:to_hash))
     end
   end
+
+  def load_books_from_file
+    if File.exist?('books.json')
+      json_data = File.read('books.json')
+      books_data = JSON.parse(json_data)
+      @books = books_data.map { |book_data| Book.new(book_data['title'], book_data['author']) }
+    end
+  end
 end
