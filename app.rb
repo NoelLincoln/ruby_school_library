@@ -142,12 +142,13 @@ class App
   end
 
   def load_books_from_file
-    if File.exist?('books.json')
-      json_data = File.read('books.json')
-      books_data = JSON.parse(json_data)
-      @books = books_data.map { |book_data| Book.new(book_data['title'], book_data['author']) }
-    end
-  end
+  return unless File.exist?('books.json')
+
+  json_data = File.read('books.json')
+  books_data = JSON.parse(json_data)
+  @books = books_data.map { |book_data| Book.new(book_data['title'], book_data['author']) }
+end
+
 
   def save_people_to_file
     File.open('people.json', 'w') do |file|
