@@ -3,15 +3,19 @@ require_relative 'teacher'
 require_relative 'student'
 require_relative 'rental'
 require_relative 'book'
+require_relative 'file_operations'
 require 'date'
 require 'json'
 
 # Core functionality class
 class App
+  attr_accessor :books, :people, :rentals
+
   def initialize
     @people = []
     @books = []
     @rentals = []
+    @file_operations = FileOperations.new(@app)
   end
 
   # Methods to interact with books, people, and rentals
@@ -105,7 +109,6 @@ class App
   def list_rentals
     print 'ID of person: '
     id = gets.chomp.to_i
-
     person = find_person_by_id(id)
 
     if person
@@ -121,84 +124,14 @@ class App
 
   # Public methods for saving and loading data
   def save_data_to_files
-    save_books_to_file
-    save_people_to_file
-    save_rentals_to_file
+    @file_operations.save_data_to_files
   end
 
   def load_data_from_files
-    load_books_from_file
-    load_people_from_file
-    load_rentals_from_file
-  end
-
-  private
-
-  # Methods for saving and loading specific data types
-  def save_books_to_file
-    File.open('books.json', 'w') do |file|
-      file.puts JSON.generate(@books.map(&:to_hash))
-    end
-  end
-
-  def load_books_from_file
-    return unless File.exist?('books.json')
-
-    json_data = File.read('books.json')
-    books_data = JSON.parse(json_data)
-    @books = books_data.map { |book_data| Book.new(book_data['title'], book_data['author']) }
-  end
-
-
-  def save_people_to_file
-    File.open('people.json', 'w') do |file|
-      file.puts JSON.generate(@people.map(&:to_hash))
-    end
-  end
-
-  def load_people_from_file
-    return unless File.exist?('people.json')
-    json_data = File.read('people.json')
-    people_data = JSON.parse(json_data)
-    @people = people_data.map do |person_data|
-      if person_data['type'] == 'Student'
-        Student.new(person_data['age'], person_data['parent_permission'], person_data['name'])
-      elsif person_data['type'] == 'Teacher'
-        Teacher.new(person_data['age'], person_data['specialization'], person_data['name'])
-      else
-        nil
-      end
-    end.compact
-  end
-
-  def save_rentals_to_file
-    File.open('rentals.json', 'w') do |file|
-      file.puts JSON.generate(@rentals.map(&:to_hash))
-    end
-  end
-
-  def load_rentals_from_file
-    return unless File.exist?('rentals.json')
-    json_data = File.read('rentals.json')
-    rentals_data = JSON.parse(json_data)
-    @rentals = rentals_data.map do |rental_data|
-      book = find_book_by_title(rental_data['book_title'])
-      person = find_person_by_name(rental_data['person_name'])
-      date = Date.parse(rental_data['date'])
-      Rental.new(date, book, person)
-    end
-  end
-
-  # Helper methods to find book and person by title/name
-  def find_book_by_title(title)
-    @books.find { |book| book.title == title }
+    @file_operations.load_data_from_files
   end
 
   def find_person_by_id(person_id)
     @people.find { |person| person.id == person_id }
-  end
-
-  def find_person_by_name(name)
-    @people.find { |person| person.name == name }
   end
 end
