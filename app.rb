@@ -137,4 +137,10 @@ class App
     save_people_to_file
     save_rentals_to_file
   end
+
+  def load_data_from_files
+    load_books_from_file
+    load_people_from_file
+    load_rentals_from_file
+  end
 end
