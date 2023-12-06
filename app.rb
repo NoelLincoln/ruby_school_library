@@ -131,4 +131,10 @@ class App
   def find_person_by_id(person_id)
     @people.find { |person| person.id == person_id }
   end
+
+  def save_data_to_files
+    save_books_to_file
+    save_people_to_file
+    save_rentals_to_file
+  end
 end
