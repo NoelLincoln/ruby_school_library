@@ -158,4 +158,10 @@ class App
       @books = books_data.map { |book_data| Book.new(book_data['title'], book_data['author']) }
     end
   end
+
+  def save_people_to_file
+    File.open('people.json', 'w') do |file|
+      file.puts JSON.generate(@people.map(&:to_hash))
+    end
+  end
 end
