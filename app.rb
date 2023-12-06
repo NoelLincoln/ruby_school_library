@@ -164,4 +164,20 @@ class App
       file.puts JSON.generate(@people.map(&:to_hash))
     end
   end
+
+  def load_people_from_file
+    if File.exist?('people.json')
+      json_data = File.read('people.json')
+      people_data = JSON.parse(json_data)
+      @people = people_data.map do |person_data|
+        if person_data['type'] == 'Student'
+          Student.new(person_data['age'], person_data['parent_permission'], person_data['name'])
+        elsif person_data['type'] == 'Teacher'
+          Teacher.new(person_data['age'], person_data['specialization'], person_data['name'])
+        else
+          nil
+        end
+      end.compact
+    end
+  end
 end
