@@ -6,7 +6,7 @@ require_relative 'book'
 require 'date'
 require 'json'
 
-# core functionality class
+# Core functionality class
 class App
   def initialize
     @people = []
@@ -14,19 +14,18 @@ class App
     @rentals = []
   end
 
-  # method to show list of all books
+  # Methods to interact with books, people, and rentals
   def all_books(show_index: false)
     if @books.empty?
       puts 'There are no books in the library'
     else
       @books.each_with_index do |book, index|
-        puts "#{show_index ? index : ' '} Title: \"#{book.title}\", Author:  #{book.author}"
+        puts "#{show_index ? index : ' '} Title: \"#{book.title}\", Author: #{book.author}"
       end
     end
     puts
   end
 
-  # create person
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     person_type = gets.chomp.to_i
@@ -40,7 +39,6 @@ class App
     end
   end
 
-  # method to show list of all person
   def all_people(show_index: false)
     if @people.empty?
       puts 'There are no people in the library'
@@ -52,7 +50,6 @@ class App
     puts
   end
 
-  # create new book
   def create_book
     print 'Enter Title: '
     title = gets.chomp
@@ -64,7 +61,6 @@ class App
     puts ' '
   end
 
-  # create student
   def create_student
     print 'Enter Name: '
     name = gets.chomp
@@ -91,7 +87,6 @@ class App
     puts ' '
   end
 
-  # method to create a new rental
   def create_rental
     puts 'Select a book from the following list by number'
     all_books(show_index: true)
@@ -107,7 +102,6 @@ class App
     puts ' '
   end
 
-  # List all rentals for a given person id
   def list_rentals
     print 'ID of person: '
     id = gets.chomp.to_i
@@ -125,12 +119,7 @@ class App
     end
   end
 
-  private
-
-  def find_person_by_id(person_id)
-    @people.find { |person| person.id == person_id }
-  end
-
+  # Public methods for saving and loading data
   def save_data_to_files
     save_books_to_file
     save_people_to_file
@@ -144,6 +133,8 @@ class App
   end
 
   private
+
+  # Methods for saving and loading specific data types
   def save_books_to_file
     File.open('books.json', 'w') do |file|
       file.puts JSON.generate(@books.map(&:to_hash))
@@ -202,6 +193,10 @@ class App
   # Helper methods to find book and person by title/name
   def find_book_by_title(title)
     @books.find { |book| book.title == title }
+  end
+
+  def find_person_by_id(person_id)
+    @people.find { |person| person.id == person_id }
   end
 
   def find_person_by_name(name)
