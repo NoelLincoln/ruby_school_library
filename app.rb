@@ -149,6 +149,7 @@ class App
     @books = books_data.map { |book_data| Book.new(book_data['title'], book_data['author']) }
   end
 
+
   def save_people_to_file
     File.open('people.json', 'w') do |file|
       file.puts JSON.generate(@people.map(&:to_hash))
@@ -157,7 +158,6 @@ class App
 
   def load_people_from_file
     return unless File.exist?('people.json')
-
     json_data = File.read('people.json')
     people_data = JSON.parse(json_data)
     @people = people_data.map do |person_data|
@@ -165,6 +165,8 @@ class App
         Student.new(person_data['age'], person_data['parent_permission'], person_data['name'])
       elsif person_data['type'] == 'Teacher'
         Teacher.new(person_data['age'], person_data['specialization'], person_data['name'])
+      else
+        nil
       end
     end.compact
   end
@@ -177,7 +179,6 @@ class App
 
   def load_rentals_from_file
     return unless File.exist?('rentals.json')
-
     json_data = File.read('rentals.json')
     rentals_data = JSON.parse(json_data)
     @rentals = rentals_data.map do |rental_data|
