@@ -143,4 +143,11 @@ class App
     load_people_from_file
     load_rentals_from_file
   end
+
+  private
+  def save_books_to_file
+    File.open('books.json', 'w') do |file|
+      file.puts JSON.generate(@books.map(&:to_hash))
+    end
+  end
 end
