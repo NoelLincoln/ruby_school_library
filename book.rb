@@ -14,4 +14,12 @@ class Book
     @rentals << rental
     person.add_rental(rental)
   end
+
+  def to_hash
+    {
+      'title' => @title,
+      'author' => @author,
+      'rentals' => @rentals.map(&:to_hash)
+    }
+  end
 end
