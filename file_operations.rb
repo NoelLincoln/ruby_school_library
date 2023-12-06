@@ -1,5 +1,6 @@
 require 'json'
 
+# file operations class
 class FileOperations
   def initialize(app)
     @app = app
@@ -12,10 +13,30 @@ class FileOperations
   end
 
   def load_data_from_files
-    load_from_file('books.json') { |data| @app.books = data.map { |book_data| Book.new(book_data['title'], book_data['author']) } }
-    load_from_file('people.json') { |data| @app.people = data.map(&method(:create_person_from_data)).compact }
-    load_from_file('rentals.json') { |data| @app.rentals = data.map(&method(:create_rental_from_data)) }
+  load_books
+  load_people
+  load_rentals
+end
+
+private
+
+def load_books
+  load_from_file('books.json') do |data|
+    @app.books = data.map { |book_data| Book.new(book_data['title'], book_data['author']) }
   end
+end
+
+def load_people
+  load_from_file('people.json') do |data|
+    @app.people = data.map(&method(:create_person_from_data)).compact
+  end
+end
+
+def load_rentals
+  load_from_file('rentals.json') do |data|
+    @app.rentals = data.map(&method(:create_rental_from_data))
+  end
+end
 
   private
 
