@@ -9,6 +9,8 @@ class LibraryApp
   end
 
   def start
+    @app.load_data_from_files # Load data from files on startup
+
     display_welcome_message
 
     loop do
@@ -32,6 +34,7 @@ class LibraryApp
   end
 
   def exit_program
+    @app.save_data_to_files # Save data to files on exit
     puts 'Thank you for using this app! Goodbye!'
   end
 end
