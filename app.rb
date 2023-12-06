@@ -142,13 +142,12 @@ class App
   end
 
   def load_books_from_file
-  return unless File.exist?('books.json')
+    return unless File.exist?('books.json')
 
-  json_data = File.read('books.json')
-  books_data = JSON.parse(json_data)
-  @books = books_data.map { |book_data| Book.new(book_data['title'], book_data['author']) }
-end
-
+    json_data = File.read('books.json')
+    books_data = JSON.parse(json_data)
+    @books = books_data.map { |book_data| Book.new(book_data['title'], book_data['author']) }
+  end
 
   def save_people_to_file
     File.open('people.json', 'w') do |file|
@@ -157,18 +156,17 @@ end
   end
 
   def load_people_from_file
-      return unless File.exist?('people.json')
-      json_data = File.read('people.json')
-      people_data = JSON.parse(json_data)
-      @people = people_data.map do |person_data|
-        if person_data['type'] == 'Student'
-          Student.new(person_data['age'], person_data['parent_permission'], person_data['name'])
-        elsif person_data['type'] == 'Teacher'
-          Teacher.new(person_data['age'], person_data['specialization'], person_data['name'])
-        else
-          nil
-        end
-      end.compact
+    return unless File.exist?('people.json')
+
+    json_data = File.read('people.json')
+    people_data = JSON.parse(json_data)
+    @people = people_data.map do |person_data|
+      if person_data['type'] == 'Student'
+        Student.new(person_data['age'], person_data['parent_permission'], person_data['name'])
+      elsif person_data['type'] == 'Teacher'
+        Teacher.new(person_data['age'], person_data['specialization'], person_data['name'])
+      end
+    end.compact
   end
 
   def save_rentals_to_file
@@ -178,15 +176,16 @@ end
   end
 
   def load_rentals_from_file
-      return unless File.exist?('rentals.json')
-      json_data = File.read('rentals.json')
-      rentals_data = JSON.parse(json_data)
-      @rentals = rentals_data.map do |rental_data|
-        book = find_book_by_title(rental_data['book_title'])
-        person = find_person_by_name(rental_data['person_name'])
-        date = Date.parse(rental_data['date'])
-        Rental.new(date, book, person)
-      end
+    return unless File.exist?('rentals.json')
+
+    json_data = File.read('rentals.json')
+    rentals_data = JSON.parse(json_data)
+    @rentals = rentals_data.map do |rental_data|
+      book = find_book_by_title(rental_data['book_title'])
+      person = find_person_by_name(rental_data['person_name'])
+      date = Date.parse(rental_data['date'])
+      Rental.new(date, book, person)
+    end
   end
 
   # Helper methods to find book and person by title/name
