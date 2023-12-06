@@ -157,7 +157,7 @@ end
   end
 
   def load_people_from_file
-    if File.exist?('people.json')
+      return unless File.exist?('people.json')
       json_data = File.read('people.json')
       people_data = JSON.parse(json_data)
       @people = people_data.map do |person_data|
@@ -169,7 +169,6 @@ end
           nil
         end
       end.compact
-    end
   end
 
   def save_rentals_to_file
@@ -179,7 +178,7 @@ end
   end
 
   def load_rentals_from_file
-    if File.exist?('rentals.json')
+      return unless File.exist?('rentals.json')
       json_data = File.read('rentals.json')
       rentals_data = JSON.parse(json_data)
       @rentals = rentals_data.map do |rental_data|
@@ -188,7 +187,6 @@ end
         date = Date.parse(rental_data['date'])
         Rental.new(date, book, person)
       end
-    end
   end
 
   # Helper methods to find book and person by title/name
