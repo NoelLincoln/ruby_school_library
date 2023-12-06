@@ -186,4 +186,17 @@ class App
       file.puts JSON.generate(@rentals.map(&:to_hash))
     end
   end
+
+  def load_rentals_from_file
+    if File.exist?('rentals.json')
+      json_data = File.read('rentals.json')
+      rentals_data = JSON.parse(json_data)
+      @rentals = rentals_data.map do |rental_data|
+        book = find_book_by_title(rental_data['book_title'])
+        person = find_person_by_name(rental_data['person_name'])
+        date = Date.parse(rental_data['date'])
+        Rental.new(date, book, person)
+      end
+    end
+  end
 end
