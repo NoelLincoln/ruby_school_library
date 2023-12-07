@@ -35,6 +35,10 @@ class Person < Nameable
     @rentals.delete(rental)
   end
 
+  def add_rental(rental)
+    @rentals << rental
+  end
+
   private
 
   def of_age?
