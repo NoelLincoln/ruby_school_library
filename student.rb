@@ -10,6 +10,17 @@ class Student < Person
     @classroom = classroom
   end
 
+  def to_hash
+    {
+      'type' => 'Student',
+      'id' => @id,
+      'name' => @name,
+      'age' => @age,
+      'parent_permission' => @parent_permission,
+      'rentals' => @rentals.map(&:to_hash)
+    }
+  end
+
   def play_hooky
     '¯(ツ)/¯'
   end

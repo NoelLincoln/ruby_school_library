@@ -3,29 +3,33 @@ require_relative 'teacher'
 require_relative 'student'
 require_relative 'rental'
 require_relative 'book'
+require_relative 'file_operations'
 require 'date'
+require 'json'
 
-# core functionality class
+# Core functionality class
 class App
+  attr_accessor :books, :people, :rentals
+
   def initialize
     @people = []
     @books = []
     @rentals = []
+    @file_operations = FileOperations.new(@app)
   end
 
-  # method to show list of all books
+  # Methods to interact with books, people, and rentals
   def all_books(show_index: false)
     if @books.empty?
       puts 'There are no books in the library'
     else
       @books.each_with_index do |book, index|
-        puts "#{show_index ? index : ' '} Title: \"#{book.title}\", Author:  #{book.author}"
+        puts "#{show_index ? index : ' '} Title: \"#{book.title}\", Author: #{book.author}"
       end
     end
     puts
   end
 
-  # create person
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     person_type = gets.chomp.to_i
@@ -39,7 +43,6 @@ class App
     end
   end
 
-  # method to show list of all person
   def all_people(show_index: false)
     if @people.empty?
       puts 'There are no people in the library'
@@ -51,7 +54,6 @@ class App
     puts
   end
 
-  # create new book
   def create_book
     print 'Enter Title: '
     title = gets.chomp
@@ -63,7 +65,6 @@ class App
     puts ' '
   end
 
-  # create student
   def create_student
     print 'Enter Name: '
     name = gets.chomp
@@ -90,7 +91,6 @@ class App
     puts ' '
   end
 
-  # method to create a new rental
   def create_rental
     puts 'Select a book from the following list by number'
     all_books(show_index: true)
@@ -106,12 +106,9 @@ class App
     puts ' '
   end
 
-  # List all rentals for a given person id
-  # List all rentals for a given person id
   def list_rentals
     print 'ID of person: '
     id = gets.chomp.to_i
-
     person = find_person_by_id(id)
 
     if person
@@ -125,7 +122,14 @@ class App
     end
   end
 
-  private
+  # Public methods for saving and loading data
+  def save_data_to_files
+    @file_operations.save_data_to_files
+  end
+
+  def load_data_from_files
+    @file_operations.load_data_from_files
+  end
 
   def find_person_by_id(person_id)
     @people.find { |person| person.id == person_id }
