@@ -1,24 +1,18 @@
-# spec/trim_decorator_spec.rb
-
+# spec/trimmer_decorator_spec.rb
 require_relative '../trim_decorator'
 
-RSpec.describe TrimDecorator do
-  let(:nameable_double) { double('Nameable') }
+describe TrimmerDecorator do
+  let(:nameable_double) { instance_double('Nameable', correct_name: '   John Doe   ') }
 
   describe '#correct_name' do
-    it 'trims the correct name to the first 10 characters' do
-      trimmed_name = 'John Doe Trimmed'
-      allow(nameable_double).to receive(:correct_name).and_return(trimmed_name)
-
+    it 'strips leading and trailing spaces from the correct_name of the nameable object' do
       trim_decorator = described_class.new(nameable_double)
-      result = trim_decorator.correct_name
-
-      expect(result).to eq(trimmed_name[0, 10])
+      expect(trim_decorator.correct_name).to eq('John Doe')
     end
 
-    it 'calls correct_name on the nameable object' do
-      allow(nameable_double).to receive(:correct_name).and_return(nil)
-      expect { described_class.new(nameable_double).correct_name }.not_to raise_error
+    it 'does not modify the original correct_name method of the nameable object' do
+      trim_decorator = described_class.new(nameable_double)
+      expect { trim_decorator.correct_name }.not_to change { nameable_double.correct_name }
     end
   end
 end
