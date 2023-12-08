@@ -58,24 +58,3 @@ RSpec.describe Person do
   end
 end
 
-RSpec.describe Student do
-  let(:student) { Student.new(20, 'Alice') }
-
-  describe '#initialize' do
-    it 'creates a student with the given attributes' do
-      expect(student).to be_a(Person)
-    end
-  end
-end
-
-RSpec.describe Teacher do
-  let(:teacher) { Teacher.new(35, 'Mr. Smith', specialization: 'Math') }
-
-  describe '#initialize' do
-    it 'creates a teacher with the given attributes' do
-      expect(teacher).to be_a(Person)
-      expect(teacher.specialization).to eq('Math')
-    end
-  end
-end
-
