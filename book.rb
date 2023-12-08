@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'rental'
 
 # book class
@@ -13,7 +15,7 @@ class Book
   # Has-many side: a book has many rentals
   def add_rental(person, date)
     Rental.new(date, self, person)
-    end
+  end
 
   def to_hash
     {

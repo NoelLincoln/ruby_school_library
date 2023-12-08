@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../classroom'
 require_relative '../student'
 
@@ -19,7 +21,7 @@ RSpec.describe Classroom do
     it 'adds a student to the classroom' do
       student = instance_double('Student', classroom: nil)
 
-      allow(student).to receive(:classroom=)  # Mock the classroom= method
+      allow(student).to receive(:classroom=) # Mock the classroom= method
 
       expect { classroom.add_student(student) }.to change { classroom.students.size }.from(0).to(1)
       expect(classroom.students).to include(student)
@@ -33,7 +35,7 @@ RSpec.describe Classroom do
     it 'removes a student from the classroom' do
       student = instance_double('Student', classroom: classroom)
 
-      allow(student).to receive(:classroom=)  # Mock the classroom= method
+      allow(student).to receive(:classroom=) # Mock the classroom= method
 
       # Add a student to the classroom before removing
       classroom.add_student(student)

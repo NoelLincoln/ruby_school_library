@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # spec/trimmer_decorator_spec.rb
 require_relative '../trim_decorator'
 
@@ -12,7 +14,7 @@ describe TrimmerDecorator do
 
     it 'does not modify the original correct_name method of the nameable object' do
       trim_decorator = described_class.new(nameable_double)
-      expect { trim_decorator.correct_name }.not_to change { nameable_double.correct_name }
+      expect { trim_decorator.correct_name }.not_to(change { nameable_double.correct_name })
     end
   end
 end

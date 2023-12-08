@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../nameable'
 
 RSpec.describe Nameable do
@@ -9,4 +11,3 @@ RSpec.describe Nameable do
     end
   end
 end
-

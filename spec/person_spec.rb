@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../person'
 require_relative '../book'
 require 'date'
@@ -49,7 +51,7 @@ RSpec.describe Person do
 
   describe '#return_book' do
     it 'removes a rental from rentals' do
-      book = instance_double('Book', add_rental: nil)
+      instance_double('Book', add_rental: nil)
       rental = instance_double('Rental')
       person.rentals << rental
 
@@ -57,4 +59,3 @@ RSpec.describe Person do
     end
   end
 end
-

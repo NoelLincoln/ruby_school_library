@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'base_decorator'
 
 # trim decorator implements base decorator correct name method
