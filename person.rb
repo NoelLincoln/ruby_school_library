@@ -1,8 +1,9 @@
 require_relative 'nameable'
+require_relative 'rental'
 
 # class person extends Nameable
 class Person < Nameable
-  attr_accessor :name, :age, :rentals
+  attr_accessor :name, :age, :parent_permission, :rentals
   attr_reader :id
 
   def initialize(age, name = 'Unknown', parent_permission: true, **additional_params)
@@ -33,6 +34,10 @@ class Person < Nameable
 
   def return_book(rental)
     @rentals.delete(rental)
+  end
+
+  def add_rental(rental)
+    @rentals << rental
   end
 
   private
