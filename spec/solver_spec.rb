@@ -16,7 +16,7 @@ describe Solver do
   end
 
   describe '#fizzbuzz' do
-   it 'returns "fizz" for multiples of 3' do
+    it 'returns "fizz" for multiples of 3' do
       solver = Solver.new
       expect(solver.fizzbuzz(3)).to eq('fizz')
       expect(solver.fizzbuzz(6)).to eq('fizz')

@@ -1,6 +1,5 @@
 # class solver
 class Solver
-
   def reverse(word)
     word.reverse
   end
@@ -12,15 +11,15 @@ class Solver
     (1..num).reduce(:*)
   end
 
-  def fizzbuzz(n)
-    if n % 3 == 0 && n % 5 == 0
+  def fizzbuzz(num)
+    if (num % 3).zero? && (num % 5).zero?
       'fizzbuzz'
-    elsif n % 3 == 0
+    elsif (num % 3).zero?
       'fizz'
-    elsif n % 5 == 0
+    elsif (num % 5).zero?
       'buzz'
     else
-      n.to_s
+      num.to_s
     end
   end
 
