@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative '../capitalize_decorator'
 
 RSpec.describe CapitalizeDecorator do

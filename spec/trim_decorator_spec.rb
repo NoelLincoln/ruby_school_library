@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # spec/trimmer_decorator_spec.rb
 require_relative '../trim_decorator'
 

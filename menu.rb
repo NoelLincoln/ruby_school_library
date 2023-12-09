@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'list_books_option'
 require_relative 'list_people_option'
 require_relative 'create_book_option'
