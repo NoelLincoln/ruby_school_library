@@ -6,6 +6,12 @@ describe Solver do
       solver = Solver.new
       expect(solver.factorial(0)).to eq(1)
     end
+
+    it 'raises FactorialError for negative integers' do
+      solver = Solver.new
+      expect { solver.factorial(-3) }.to raise_error( ArgumentError, 'Input must be a non-negative integer')
+      expect { solver.factorial(-10) }.to raise_error( ArgumentError, 'Input must be a non-negative integer')
+    end
   end
 
   describe '#reverse' do
