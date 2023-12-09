@@ -1,5 +1,10 @@
 # class solver
 class Solver
+
+  def reverse(word)
+    word.reverse
+  end
+
   def factorial(num)
     raise ArgumentError, 'Input must be a non-negative integer' unless valid_input?(num)
     return 1 if num.zero?
